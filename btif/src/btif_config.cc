@@ -283,7 +283,7 @@ static std::unique_ptr<config_t> btif_config_open(const char* filename, const ch
   if (stored_hash.empty()) {
     LOG(ERROR) << __func__ << ": stored_hash=<empty>";
     // Will encrypt once since the bt_config never encrypt.
-    if (!btif_keystore.doesKeyExist() && !current_hash.empty()) {
+    if (!btif_keystore.DoesKeyExist() && !current_hash.empty()) {
       write_checksum_file(checksum_filename, current_hash);
       stored_hash = read_checksum_file(checksum_filename);
     }
